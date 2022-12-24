@@ -23,3 +23,7 @@ mkdir -pv $LFS/var
 case $(uname -m) in
     x86_64) mkdir -pv $LFS/lib64 ;;
 esac
+
+source download.sh
+
+source setup_user.sh
