@@ -6,8 +6,7 @@ cat md5sums | grep -i "$PACKAGE" | grep -i -v "patch" |while read line; do
     bn="`echo $line | cut -d' ' -f2`"
     DIRNAME=$(echo "$bn" | sed 's/\(.*\)\.tar\..*/\1/')
 
-    if [[ -d "$DIRNAME" ]]
-    then
+    if [ -d "$DIRNAME" ]; then
         echo "$DIRNAME already exists on your filesystem."
         rm -rf "$DIRNAME"
     fi

@@ -57,5 +57,7 @@ EOF
 ```
 
 ## Step 6: Cross Compiling Temporary Tools
-
+```
+./lfs_install.sh
+```
 
