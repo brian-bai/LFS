@@ -5,6 +5,7 @@ if ! test $(id -u lfs) ; then
 sudo groupadd lfs
 sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
 sudo passwd lfs
+sudo adduser lfs
 sudo chown -v lfs $LFS/{usr,lib,var,etc,bin,sbin,tools,sources,boot}
 case $(uname -m) in
   x86_64) sudo chown -v lfs $LFS/lib64 ;;
