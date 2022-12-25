@@ -1,6 +1,8 @@
 
 LFS_DISK="$1"
 
+echo "LFS_DISK: ${LFS_DISK:?}"
+
 sudo fdisk "$LFS_DISK" << EOF
 o
 n

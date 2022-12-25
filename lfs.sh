@@ -8,22 +8,27 @@ if ! grep -q "$LFS" /proc/mounts; then
     sudo mkdir -pv $LFS
     sudo mount "${LFS_DISK}2" "$LFS"
     sudo chown -v $USER "$LFS"
+
+    mkdir -pv $LFS/sources
+    mkdir -pv $LFS/tools
+    mkdir -pv $LFS/boot
+    mkdir -pv $LFS/etc
+    mkdir -pv $LFS/bin
+    mkdir -pv $LFS/lib
+    mkdir -pv $LFS/sbin
+    mkdir -pv $LFS/usr
+    mkdir -pv $LFS/var
+
+    case $(uname -m) in
+        x86_64) mkdir -pv $LFS/lib64 ;;
+    esac
 fi
-
-mkdir -pv $LFS/sources
-mkdir -pv $LFS/tools
-mkdir -pv $LFS/boot
-mkdir -pv $LFS/etc
-mkdir -pv $LFS/bin
-mkdir -pv $LFS/lib
-mkdir -pv $LFS/sbin
-mkdir -pv $LFS/usr
-mkdir -pv $LFS/var
-
-case $(uname -m) in
-    x86_64) mkdir -pv $LFS/lib64 ;;
-esac
 
 source download.sh
 
-source setup_user.sh
+cp -rf *.sh chapter* "$LFS/sources"
+cd "$LFS/sources"
+export PATH="$LFS/tools/bin:$PATH"
+export MAKEFLAGS='-j4'
+
+source packageinstall.sh 5 binutils
