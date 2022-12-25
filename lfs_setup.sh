@@ -26,13 +26,14 @@ fi
 
 source download.sh
 
-cp -rf *.sh chapter* "$LFS/sources"
-cd "$LFS/sources"
-export PATH="$LFS/tools/bin:$PATH"
-export MAKEFLAGS='-j4'
+# move to install.sh
+# cp -rf *.sh chapter* "$LFS/sources"
+# cd "$LFS/sources"
+# export PATH="$LFS/tools/bin:$PATH"
+# export MAKEFLAGS='-j4'
 
-#source packageinstall.sh 5 binutils
-#binutils already done 
-for package in gcc linux-api-headers.sh glibc libstdc++; do
-    source packageinstall.sh 5 $package
-done 
+# #source packageinstall.sh 5 binutils
+
+# for package in gcc linux-api-headers glibc libstdc++; do
+#     source packageinstall.sh 5 $package
+# done 

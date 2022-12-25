@@ -20,7 +20,7 @@ echo "rootsbindir=/usr/sbin" > configparms
       --enable-kernel=3.2                \
       --with-headers=$LFS/usr/include    \
       libc_cv_slibdir=/usr/lib \
-&& make
+&& make \
 && make DESTDIR=$LFS install
 
 sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd

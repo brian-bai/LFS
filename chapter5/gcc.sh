@@ -1,3 +1,4 @@
+mkdir mpfr gmp mpc
 tar -xf ../mpfr-4.1.0.tar.xz -C mpfr --strip-components=1
 tar -xf ../gmp-6.2.1.tar.xz -C gmp --strip-components=1
 tar -xf ../mpc-1.2.1.tar.gz -C mpc --strip-components=1
@@ -34,5 +35,6 @@ cd       build
 && make \
 && make install
 
+cd ..
 cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
