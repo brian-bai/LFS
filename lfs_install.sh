@@ -16,6 +16,10 @@ done
 
 # chapter6
 for package in m4 ncurses bash coreutils diffutils file findutils gawk grep gzip make patch sed tar xz binutils gcc; do
-    source packageinstall.sh 6 $package
+    echo -n ""
+    #source packageinstall.sh 6 $package
 done 
+
+source packageinstall.sh 6 gcc
+
 

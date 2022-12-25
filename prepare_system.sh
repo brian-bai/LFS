@@ -14,3 +14,4 @@ apt install bison
 apt install make
 apt install texinfo
 apt-get install build-essential
+apt-get install help2man

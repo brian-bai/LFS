@@ -2,7 +2,8 @@
 CHAPTER="$1"
 PACKAGE="$2"
 
-cat md5sums | grep -i "$PACKAGE" | grep -i -v "patch" |while read line; do
+# need the space for tar case
+cat md5sums | grep -i " $PACKAGE" | grep -i -v "patch" |while read line; do
     bn="`echo $line | cut -d' ' -f2`"
     DIRNAME=$(echo "$bn" | sed 's/\(.*\)\.tar\..*/\1/')
 
@@ -38,11 +39,12 @@ cat md5sums | grep -i "$PACKAGE" | grep -i -v "patch" |while read line; do
 done
 
 # deal with cases that package name is not in tar file
-if [ "$PACKAGE" == "linux-api-headers" ] || [ "$PACKAGE" == "libstdc++" ];
+if [ "$PACKAGE" == "linux-api-headers" ] || [ "$PACKAGE" == "libstdc++" ] || [ "$PACKAGE" == "patch" ] ;
 then
     case $PACKAGE in
             linux-api-headers) bn="linux-5.19.2.tar.xz" ;;
             libstdc++) bn="gcc-12.2.0.tar.xz" ;;
+            patch) bn="patch-2.7.6.tar.xz" ;;
     esac
 
     DIRNAME=$(echo "$bn" | sed 's/\(.*\)\.tar\..*/\1/')

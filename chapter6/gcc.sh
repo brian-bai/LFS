@@ -1,9 +1,8 @@
-tar -xf ../mpfr-4.1.0.tar.xz
-mv -v mpfr-4.1.0 mpfr
-tar -xf ../gmp-6.2.1.tar.xz
-mv -v gmp-6.2.1 gmp
-tar -xf ../mpc-1.2.1.tar.gz
-mv -v mpc-1.2.1 mpc
+mkdir mpfr gmp mpc
+tar -xf ../mpfr-4.1.0.tar.xz -C mpfr --strip-components=1
+tar -xf ../gmp-6.2.1.tar.xz -C gmp --strip-components=1
+tar -xf ../mpc-1.2.1.tar.gz -C mpc --strip-components=1
+
 
 case $(uname -m) in
   x86_64)
